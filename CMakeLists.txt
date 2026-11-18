@@ -6,6 +6,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 if (MSVC)
     add_compile_options("/FS")
+    # The prebuilt Skia static library contains debug-CRT references.
+    # Use the matching dynamic debug CRT instead of the default Release CRT.
+    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreadedDebugDLL")
 endif()
 
 add_subdirectory(thirdparty/miniz)
