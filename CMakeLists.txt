@@ -142,7 +142,6 @@ if(WIN32)
 endif()
 
 include(CPack)
-include(CPack)
 
 
 # add_executable(test_avd "C:/Users/namde/.gemini/antigravity/brain/2793ac40-3b54-4c10-bfb3-aac1f5ab48f5/scratch/test_avd.cpp"
