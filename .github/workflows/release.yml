@@ -43,7 +43,7 @@ jobs:
         run: cmake -G Ninja -B build -S . -DCMAKE_BUILD_TYPE=${{ env.BUILD_CONFIG }} -DCMAKE_C_COMPILER_LAUNCHER=sccache -DCMAKE_CXX_COMPILER_LAUNCHER=sccache
 
       - name: Build
-        run: cmake --build build --parallel
+        run: cmake --build build --parallel 1
 
       - name: Create Release Package
         run: |
