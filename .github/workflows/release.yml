@@ -40,7 +40,7 @@ jobs:
       # .lib files aren't in Git), you will need to add a step here to build/download them.
 
       - name: Configure CMake
-        run: cmake -G Ninja -B build -S . -DCMAKE_BUILD_TYPE=${{ env.BUILD_CONFIG }} -DCMAKE_C_COMPILER_LAUNCHER=sccache -DCMAKE_CXX_COMPILER_LAUNCHER=sccache
+        run: cmake -G Ninja -B build -S . -DCMAKE_BUILD_TYPE=${{ env.BUILD_CONFIG }}
 
       - name: Build
         run: cmake --build build --parallel

@@ -6,6 +6,19 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 if (MSVC)
     add_compile_options("/FS" "/Z7")
+    foreach(_msvc_flag_var
+            CMAKE_C_FLAGS
+            CMAKE_C_FLAGS_DEBUG
+            CMAKE_C_FLAGS_RELEASE
+            CMAKE_C_FLAGS_MINSIZEREL
+            CMAKE_C_FLAGS_RELWITHDEBINFO
+            CMAKE_CXX_FLAGS
+            CMAKE_CXX_FLAGS_DEBUG
+            CMAKE_CXX_FLAGS_RELEASE
+            CMAKE_CXX_FLAGS_MINSIZEREL
+            CMAKE_CXX_FLAGS_RELWITHDEBINFO)
+        string(REPLACE "/Zi" "/Z7" ${_msvc_flag_var} "${${_msvc_flag_var}}")
+    endforeach()
     # The prebuilt Skia static library contains debug-CRT references.
     # Use the matching dynamic debug CRT instead of the default Release CRT.
     set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreadedDebugDLL")
